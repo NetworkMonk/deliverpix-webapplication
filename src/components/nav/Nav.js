@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function Nav() {
   return (
@@ -35,21 +36,21 @@ function Nav() {
           <Link
             to={`/`}
             className="block mt-4 lg:inline-block lg:mt-0 transition duration-200 text-purple-300 hover:text-white mr-4"
-            activeClassName="text-underline"
+            activeclassname="text-underline"
           >
             Home
           </Link>
           <Link
             to={`/`}
             className="block mt-4 lg:inline-block lg:mt-0 transition duration-200 text-purple-300 hover:text-white mr-4"
-            activeClassName="text-underline"
+            activeclassname="text-underline"
           >
             Dashboard
           </Link>
           <Link
             to={`/blog/`}
             className="block mt-4 lg:inline-block lg:mt-0 transition duration-200 text-purple-300 hover:text-white mr-4"
-            activeClassName="text-underline"
+            activeclassname="text-underline"
           >
             Blog
           </Link>
@@ -59,6 +60,7 @@ function Nav() {
             to={`/signin/`}
             className="transition duration-200 text-purple-300 hover:text-white"
           >
+            <FontAwesomeIcon icon="coffee" fixedWidth className="mr-3" />
             Sign In
           </Link>
         </div>

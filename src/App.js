@@ -2,8 +2,11 @@ import React from "react";
 import { AppContextProvider } from "./context";
 import { ApplicationRouter, ApplicationSwitch } from "./router/Router";
 import Container from "./components/common/Container";
-import "./tailwind.generated.css";
 import Nav from "./components/nav/Nav";
+import IconLibrary from "./icon-library/IconLibrary";
+import "./tailwind.generated.css";
+
+IconLibrary();
 
 function App() {
   const userName = "Not logged in";
