@@ -13,7 +13,7 @@ function LinkButton(props) {
           color +
           "-500 hover:bg-" +
           color +
-          "-600 text-white font-bold py-2 px-4 rounded"
+          "-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
         }
       >
         {children ? children : ""}

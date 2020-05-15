@@ -8,10 +8,16 @@ import LinkButton from "../common/LinkButton";
 
 function Dashboard() {
   return (
-    <Container>
-      <PageTitle>DeliverPix</PageTitle>
+    <div>
+      <PageTitle>My Dashboard</PageTitle>
       <Container>
-        <SubTitle>My Collections</SubTitle>
+        <SubTitle>Insights</SubTitle>
+        <p>
+          <Username></Username>
+        </p>
+      </Container>
+      <Container>
+        <SubTitle>Collections</SubTitle>
         <div className="pt-4">
           <LinkButton path="/create-collection/">
             Create New Collection
@@ -19,13 +25,7 @@ function Dashboard() {
         </div>
         <CollectionList></CollectionList>
       </Container>
-      <Container>
-        <SubTitle>Insights</SubTitle>
-        <p>
-          <Username></Username>
-        </p>
-      </Container>
-    </Container>
+    </div>
   );
 }
 
