@@ -4,7 +4,9 @@ function Container(props) {
   const { children } = props ? props : {};
 
   return (
-    <div className="max-w-6xl mx-auto py-3">{children ? children : ""}</div>
+    <div className="container mx-auto py-3 px-2 md:px-4">
+      {children ? children : ""}
+    </div>
   );
 }
 

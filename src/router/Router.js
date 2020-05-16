@@ -4,6 +4,7 @@ import Dashboard from "../components/dashboard/Dashboard";
 import CreateCollection from "../components/create-collection/CreateCollection";
 import Collection from "../components/collection/Collection";
 import SignIn from "../components/signin/SignIn";
+import Survey2020 from "../components/survey2020/Survey2020";
 
 export function ApplicationRouter(props) {
   const { children } = props ? props : {};
@@ -19,6 +20,7 @@ export function ApplicationSwitch() {
         path="/create-collection/"
         component={CreateCollection}
       ></Route>
+      <Route exact path="/survey-2020/" component={Survey2020}></Route>
       <Route path="/:author/:collection" component={Collection}></Route>
       <Route path="/" component={Dashboard}></Route>
     </Switch>
