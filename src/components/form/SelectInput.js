@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 function SelectInput(props) {
-  const { id, label, placeholder, disabled, options } = props;
+  const { id, label, placeholder, disabled, options, value, onChange } = props;
 
   const optionsOutput = options.map(function (option) {
     const { label, value } = option ? option : {};
@@ -28,6 +28,8 @@ function SelectInput(props) {
         placeholder={placeholder}
         className="transition duration-200 ease-in-out appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
         disabled={disabled}
+        value={value ? value : ""}
+        onChange={onChange ? onChange : ""}
       >
         {optionsOutput}
       </select>
@@ -41,6 +43,8 @@ SelectInput.propTypes = {
   placeholder: PropTypes.string,
   disabled: PropTypes.bool,
   options: PropTypes.array,
+  value: PropTypes.string,
+  onChange: PropTypes.any,
 };
 
 SelectInput.defaultProps = {
@@ -49,6 +53,8 @@ SelectInput.defaultProps = {
   placeholder: "Enter text",
   disabled: false,
   options: [],
+  value: "",
+  onChange: {},
 };
 
 export default SelectInput;
