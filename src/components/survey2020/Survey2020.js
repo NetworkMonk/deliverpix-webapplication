@@ -293,8 +293,6 @@ function Survey2020() {
               size="invisible"
               sitekey="6LetzvkUAAAAAOY162bGI5DmYhOBaGU9BN9HmSUo"
             />
-          </div>
-          <div className="mb-4">
             <Button id="submit" onClick={submit}>
               Complete Survey
             </Button>
