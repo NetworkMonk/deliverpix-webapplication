@@ -1,17 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Label from "./Label";
 
 function NumberInput(props) {
   const { id, label, placeholder, disabled, value, onChange } = props;
 
   return (
     <div>
-      <label
-        className="block text-gray-700 text-sm font-bold mb-2"
-        htmlFor={id}
-      >
-        {label}
-      </label>
+      <Label id={id}>{label}</Label>
       <input
         id={id}
         type="number"

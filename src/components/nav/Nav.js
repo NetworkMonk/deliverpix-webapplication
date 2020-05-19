@@ -9,7 +9,7 @@ function Nav() {
 
   return (
     <nav className="flex items-center justify-between flex-wrap bg-purple-900 p-6">
-      <div className="flex items-center flex-shrink-0 text-purple-500 mr-6">
+      <div className="flex items-center flex-shrink-0 text-white mr-6">
         <svg
           id="Layer_1"
           data-name="Layer 1"

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ReCAPTCHA from "react-google-recaptcha";
 import PageTitle from "../common/PageTitle";
 import Container from "../common/Container";
 import TextInput from "../form/TextInput";
@@ -6,24 +7,36 @@ import Button from "../form/Button";
 import SelectInput from "../form/SelectInput";
 import NumberInput from "../form/NumberInput";
 import Alert from "../common/Alert";
+import SubTitle from "../common/SubTitle";
+import CheckboxInput from "../form/CheckboxInput";
+
+const recaptchaRef = React.createRef();
 
 function Survey2020() {
-  const [currentValue, setCurrentValue] = useState("");
-  const [contactClosedBeta, setContactClosedBeta] = useState("");
-  const [contactFutureUpdates, setContactFutureUpdate] = useState("");
-  const [emailAddress, setEmailAddress] = useState("");
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
+  const [formValues, setFormValues] = useState({});
+
+  const featureOptions = [
+    { value: "", label: "" },
+    { value: 10, label: "10 (extremely important)" },
+    { value: 9, label: "9" },
+    { value: 8, label: "8" },
+    { value: 7, label: "7" },
+    { value: 6, label: "6" },
+    { value: 5, label: "5 (somewhat important)" },
+    { value: 4, label: "4" },
+    { value: 3, label: "3" },
+    { value: 2, label: "2" },
+    { value: 1, label: "1" },
+    { value: 0, label: "0 (not important at all)" },
+  ];
 
   const submit = () => {
-    var formValues = {
-      currentValue,
-      contactClosedBeta,
-      contactFutureUpdates,
-      emailAddress,
-      firstName,
-      lastName,
-    };
+    recaptchaRef.current.execute().then(function (token) {
+      if (!token) {
+        return;
+      }
+      console.log(token);
+    });
     console.log(formValues);
   };
 
@@ -31,7 +44,7 @@ function Survey2020() {
     <div>
       <PageTitle>Deliver Pix Survey</PageTitle>
       <Container>
-        <form className="bg-gray-100 shadow-lg rounded px-8 pt-6 pb-8 mb-4">
+        <form className="bg-gray-100 shadow-lg rounded px-4 md:px-8 pt-6 pb-8 mb-4">
           <div className="mb-8">
             <p className="mb-3 font-bold text-gray-700">
               Thank you for taking an interest in deliver pix!
@@ -56,17 +69,122 @@ function Survey2020() {
               id="currently-pay"
               label="What are you currently paying per month for your photo delivery solution?"
               placeholder="Enter value"
-              value={currentValue}
-              onChange={(e) => setCurrentValue(e.target.value)}
+              value={formValues.currentValue ? formValues.currentValue : ""}
+              onChange={(e) =>
+                setFormValues({ ...formValues, currentValue: e.target.value })
+              }
             ></NumberInput>
+          </div>
+          <div>
+            <div className="mb-4 mt-8">
+              <SubTitle>
+                How important are the following features to you when assessing a
+                photo delivery service?
+              </SubTitle>
+            </div>
+            <div className="mb-4">
+              <SelectInput
+                id="feature-client-social-sharing"
+                label="Clients ability to share directly to social media"
+                options={featureOptions}
+                value={
+                  formValues.featureClientSocialSharing
+                    ? formValues.featureClientSocialSharing
+                    : ""
+                }
+                onChange={(e) =>
+                  setFormValues({
+                    ...formValues,
+                    featureClientSocialSharing: e.target.value,
+                  })
+                }
+              ></SelectInput>
+            </div>
+            <div className="mb-4">
+              <SelectInput
+                id="feature-client-direct-order"
+                label="Clients ability to order prints directly"
+                options={featureOptions}
+                value={
+                  formValues.featureClientOrderPrints
+                    ? formValues.featureClientOrderPrints
+                    : ""
+                }
+                onChange={(e) =>
+                  setFormValues({
+                    ...formValues,
+                    featureClientOrderPrints: e.target.value,
+                  })
+                }
+              ></SelectInput>
+            </div>
+            <div className="mb-4">
+              <SelectInput
+                id="feature-client-web-print-downloads"
+                label="Ability to choose to download either social media web optimized, or original quality photos"
+                options={featureOptions}
+                value={
+                  formValues.featureClientWebPrintDownloads
+                    ? formValues.featureClientWebPrintDownloads
+                    : ""
+                }
+                onChange={(e) =>
+                  setFormValues({
+                    ...formValues,
+                    featureClientWebPrintDownloads: e.target.value,
+                  })
+                }
+              ></SelectInput>
+            </div>
+            <div className="mb-4">
+              <SelectInput
+                id="feature-trial-period"
+                label="A trial period where you can try all features for a limited time"
+                options={featureOptions}
+                value={
+                  formValues.featureTrialPeriod
+                    ? formValues.featureTrialPeriod
+                    : ""
+                }
+                onChange={(e) =>
+                  setFormValues({
+                    ...formValues,
+                    featureTrialPeriod: e.target.value,
+                  })
+                }
+              ></SelectInput>
+            </div>
+            <div className="mb-4">
+              <SelectInput
+                id="feature-free-tier"
+                label="A free subscription tier where you get limited access to features"
+                options={featureOptions}
+                value={
+                  formValues.featureFreeTier ? formValues.featureFreeTier : ""
+                }
+                onChange={(e) =>
+                  setFormValues({
+                    ...formValues,
+                    featureFreeTier: e.target.value,
+                  })
+                }
+              ></SelectInput>
+            </div>
           </div>
           <div className="mb-4">
             <SelectInput
               id="beta-interest"
               label="Would you be interested in taking part in a closed beta for DeliverPix?"
               options={[{ value: "" }, { value: "Yes" }, { value: "No" }]}
-              value={contactClosedBeta}
-              onChange={(e) => setContactClosedBeta(e.target.value)}
+              value={
+                formValues.contactClosedBeta ? formValues.contactClosedBeta : ""
+              }
+              onChange={(e) =>
+                setFormValues({
+                  ...formValues,
+                  contactClosedBeta: e.target.value,
+                })
+              }
             ></SelectInput>
           </div>
           <div className="mb-4">
@@ -74,19 +192,36 @@ function Survey2020() {
               id="deliverpix-contact"
               label="Would you like to be contacted by DeliverPix about future releases and updates?"
               options={[{ value: "" }, { value: "Yes" }, { value: "No" }]}
-              value={contactFutureUpdates}
-              onChange={(e) => setContactFutureUpdate(e.target.value)}
+              value={
+                formValues.contactFutureUpdates
+                  ? formValues.contactFutureUpdates
+                  : ""
+              }
+              onChange={(e) =>
+                setFormValues({
+                  ...formValues,
+                  contactFutureUpdates: e.target.value,
+                })
+              }
             ></SelectInput>
           </div>
-          {(contactFutureUpdates === "Yes" || contactClosedBeta === "Yes") && (
+          {((formValues.contactFutureUpdates &&
+            formValues.contactFutureUpdates === "Yes") ||
+            (formValues.contactClosedBeta &&
+              formValues.contactClosedBeta === "Yes")) && (
             <div>
               <div className="mb-4">
                 <TextInput
                   id="emailAddress"
                   label="Email Address"
                   placeholder="user@example.com"
-                  value={emailAddress}
-                  onChange={(e) => setEmailAddress(e.target.value)}
+                  value={formValues.emailAddress ? formValues.emailAddress : ""}
+                  onChange={(e) =>
+                    setFormValues({
+                      ...formValues,
+                      emailAddress: e.target.value,
+                    })
+                  }
                 ></TextInput>
               </div>
               <div className="mb-4 grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -95,8 +230,13 @@ function Survey2020() {
                     id="firstName"
                     label="First Name"
                     placeholder="First Name"
-                    value={firstName}
-                    onChange={(e) => setFirstName(e.target.value)}
+                    value={formValues.firstName ? formValues.firstName : ""}
+                    onChange={(e) =>
+                      setFormValues({
+                        ...formValues,
+                        firstName: e.target.value,
+                      })
+                    }
                   ></TextInput>
                 </div>
                 <div>
@@ -104,8 +244,10 @@ function Survey2020() {
                     id="lastName"
                     label="Last Name"
                     placeholder="Last Name"
-                    value={lastName}
-                    onChange={(e) => setLastName(e.target.value)}
+                    value={formValues.lastName ? formValues.lastName : ""}
+                    onChange={(e) =>
+                      setFormValues({ ...formValues, lastName: e.target.value })
+                    }
                   ></TextInput>
                 </div>
               </div>
@@ -131,6 +273,26 @@ function Survey2020() {
                 contacted to be a part of the beta period.
               </p>
             </Alert>
+            <div className="mt-4">
+              <CheckboxInput
+                id="termsAgreed"
+                label="I agree to these terms and conditions"
+                checked={formValues.termsAgreed}
+                onChange={(e) =>
+                  setFormValues({
+                    ...formValues,
+                    termsAgreed: e.target.checked,
+                  })
+                }
+              ></CheckboxInput>
+            </div>
+          </div>
+          <div className="mb-4">
+            <ReCAPTCHA
+              ref={recaptchaRef}
+              size="invisible"
+              sitekey="6LetzvkUAAAAAOY162bGI5DmYhOBaGU9BN9HmSUo"
+            />
           </div>
           <div className="mb-4">
             <Button id="submit" onClick={submit}>

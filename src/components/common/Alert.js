@@ -19,9 +19,16 @@ function Alert(props) {
       role="alert"
     >
       <div className="flex">
-        <div className={"py-1 text-" + color + "-600"}>
-          <FontAwesomeIcon icon={icon} size="2x" fixedWidth className="mr-3" />
-        </div>
+        {icon && (
+          <div className={"py-1 text-" + color + "-600"}>
+            <FontAwesomeIcon
+              icon={icon}
+              size="2x"
+              fixedWidth
+              className="mr-3"
+            />
+          </div>
+        )}
         <div>
           <p className="font-bold">{title}</p>
           {children}
@@ -39,10 +46,10 @@ Alert.propTypes = {
 };
 
 Alert.defaultProps = {
-  children: {},
+  children: undefined,
   color: "teal",
   title: "Alert",
-  icon: "info",
+  icon: "",
 };
 
 export default Alert;
