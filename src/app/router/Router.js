@@ -20,7 +20,8 @@ export function ApplicationSwitch() {
         path="/create-collection/"
         component={CreateCollection}
       ></Route>
-      <Route exact path="/survey-2020/" component={Survey2020}></Route>
+      <Route exact path="/beta/" component={Survey2020}></Route>
+      <Route exact path="/trial/" component={Survey2020}></Route>
       <Route path="/:author/:collection" component={Collection}></Route>
       <Route path="/" component={Dashboard}></Route>
     </Switch>
