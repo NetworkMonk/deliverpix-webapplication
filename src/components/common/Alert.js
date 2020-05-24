@@ -30,7 +30,7 @@ function Alert(props) {
           </div>
         )}
         <div>
-          <p className="font-bold">{title}</p>
+          {title !== "" && <p className="font-bold">{title}</p>}
           {children}
         </div>
       </div>
@@ -48,7 +48,7 @@ Alert.propTypes = {
 Alert.defaultProps = {
   children: undefined,
   color: "teal",
-  title: "Alert",
+  title: "",
   icon: "",
 };
 

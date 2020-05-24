@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Error from "../../components/form/Error";
 import Alert from "../../components/common/Alert";
 import CheckboxInput from "../../components/form/CheckboxInput";
 
@@ -36,6 +37,12 @@ function SurveyTerms(props) {
             })
           }
         ></CheckboxInput>
+        {formValues.validationErrors &&
+          formValues.validationErrors.termsAgreed && (
+            <Error color="red">
+              You must agree to these terms and conditions
+            </Error>
+          )}
       </div>
     </div>
   );

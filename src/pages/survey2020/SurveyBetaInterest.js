@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Error from "../../components/form/Error";
 import SubTitle from "../../components/common/SubTitle";
 import SelectInput from "../../components/form/SelectInput";
 
@@ -26,6 +27,10 @@ function SurveyBetaInterest(props) {
             })
           }
         ></SelectInput>
+        {formValues.validationErrors &&
+          formValues.validationErrors.contactClosedBeta && (
+            <Error color="red">This field is required</Error>
+          )}
       </div>
       <div className="mb-4">
         <SelectInput
@@ -44,6 +49,10 @@ function SurveyBetaInterest(props) {
             })
           }
         ></SelectInput>
+        {formValues.validationErrors &&
+          formValues.validationErrors.contactFutureUpdates && (
+            <Error color="red">This field is required</Error>
+          )}
       </div>
     </div>
   );

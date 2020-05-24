@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Error from "../../components/form/Error";
 import SubTitle from "../../components/common/SubTitle";
 import TextInput from "../../components/form/TextInput";
 
@@ -34,6 +35,10 @@ function SurveyContactDetails(props) {
                   })
                 }
               ></TextInput>
+              {formValues.validationErrors &&
+                formValues.validationErrors.emailAddress && (
+                  <Error color="red">A valid email address is required</Error>
+                )}
             </div>
             <div className="mb-4 grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
@@ -49,6 +54,10 @@ function SurveyContactDetails(props) {
                     })
                   }
                 ></TextInput>
+                {formValues.validationErrors &&
+                  formValues.validationErrors.firstName && (
+                    <Error color="red">This field is required</Error>
+                  )}
               </div>
               <div>
                 <TextInput
@@ -60,6 +69,10 @@ function SurveyContactDetails(props) {
                     setFormValues({ ...formValues, lastName: e.target.value })
                   }
                 ></TextInput>
+                {formValues.validationErrors &&
+                  formValues.validationErrors.lastName && (
+                    <Error color="red">This field is required</Error>
+                  )}
               </div>
             </div>
           </div>

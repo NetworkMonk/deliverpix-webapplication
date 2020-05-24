@@ -9,6 +9,7 @@ import SurveyFeatures from "./SurveyFeatures";
 import SurveyBetaInterest from "./SurveyBetaInterest";
 import SurveyContactDetails from "./SurveyContactDetails";
 import SurveyTerms from "./SurveyTerms";
+import Validate from "./Validate";
 
 const recaptchaRef = React.createRef();
 
@@ -16,13 +17,29 @@ function Survey2020() {
   const [formValues, setFormValues] = useState({});
 
   const submit = () => {
+    console.log(formValues);
+    var validationErrors = Validate(formValues);
+    if (Object.keys(validationErrors).length > 0) {
+      setFormValues({
+        ...formValues,
+        validationErrors: validationErrors,
+      });
+
+      console.log(validationErrors);
+      return;
+    }
+
+    // Make sure recaptch is valid and submit form
     recaptchaRef.current.execute().then(function (token) {
       if (!token) {
         return;
       }
       console.log(token);
+      setFormValues({
+        ...formValues,
+        validationErrors: {},
+      });
     });
-    console.log(formValues);
   };
 
   return (
