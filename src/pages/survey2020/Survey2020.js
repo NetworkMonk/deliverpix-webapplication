@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
-import PageTitle from "../common/PageTitle";
-import Container from "../common/Container";
-import TextInput from "../form/TextInput";
-import Button from "../form/Button";
-import SelectInput from "../form/SelectInput";
-import NumberInput from "../form/NumberInput";
-import Alert from "../common/Alert";
-import SubTitle from "../common/SubTitle";
-import CheckboxInput from "../form/CheckboxInput";
+import PageTitle from "../../components/common/PageTitle";
+import Container from "../../components/common/Container";
+import TextInput from "../../components/form/TextInput";
+import Button from "../../components/form/Button";
+import SelectInput from "../../components/form/SelectInput";
+import NumberInput from "../../components/form/NumberInput";
+import Alert from "../../components/common/Alert";
+import SubTitle from "../../components/common/SubTitle";
+import CheckboxInput from "../../components/form/CheckboxInput";
 
 const recaptchaRef = React.createRef();
 
@@ -29,6 +29,13 @@ function Survey2020() {
     { value: 1, label: "1" },
     { value: 0, label: "0 (not important at all)" },
   ];
+
+  const contactVisible =
+    (formValues.contactFutureUpdates &&
+      formValues.contactFutureUpdates === "Yes") ||
+    (formValues.contactClosedBeta && formValues.contactClosedBeta === "Yes")
+      ? true
+      : false;
 
   const submit = () => {
     recaptchaRef.current.execute().then(function (token) {
@@ -57,12 +64,15 @@ function Survey2020() {
             </p>
             <p className="text-sm text-gray-700">
               The answers provided on this form will be very helpful, but they
-              are all optional, if you wish to leave any empty, that's
+              are all optional, if you wish to leave any empty, that&apos;s
               absolutely fine. Before we are ready to launch we will be running
               a closed beta period where you can try our product out for free
               for a limited time. You can register your interested in being
               included in our beta test for selecting the option below.
             </p>
+          </div>
+          <div className="mb-4 mt-10">
+            <SubTitle>Your current photo delivery service</SubTitle>
           </div>
           <div className="mb-4">
             <NumberInput
@@ -76,7 +86,7 @@ function Survey2020() {
             ></NumberInput>
           </div>
           <div>
-            <div className="mb-4 mt-8">
+            <div className="mb-4 mt-10">
               <SubTitle>
                 How important are the following features to you when assessing a
                 photo delivery service?
@@ -171,6 +181,9 @@ function Survey2020() {
               ></SelectInput>
             </div>
           </div>
+          <div className="mb-4 mt-10">
+            <SubTitle>Register for trial interest</SubTitle>
+          </div>
           <div className="mb-4">
             <SelectInput
               id="beta-interest"
@@ -205,10 +218,7 @@ function Survey2020() {
               }
             ></SelectInput>
           </div>
-          {((formValues.contactFutureUpdates &&
-            formValues.contactFutureUpdates === "Yes") ||
-            (formValues.contactClosedBeta &&
-              formValues.contactClosedBeta === "Yes")) && (
+          {contactVisible && (
             <div>
               <div className="mb-4">
                 <TextInput
@@ -260,7 +270,7 @@ function Survey2020() {
               </p>
               <p className="text-sm my-1">
                 We will not pass your contact details to any third parties. Your
-                details will be held only for the options you've specified
+                details will be held only for the options you&apos;ve specified
                 above.
               </p>
               <p className="text-sm my-1">

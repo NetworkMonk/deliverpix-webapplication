@@ -1,16 +1,7 @@
-import React, { useContext } from "react";
-import { AppContext } from "../../context";
+import React from "react";
 
 function Username() {
-  const context = useContext(AppContext);
-  const noUsername = "Not logged in";
-
-  return (
-    <span>
-      {context.username}
-      {!context.username && noUsername}
-    </span>
-  );
+  return <span>USERNAME</span>;
 }
 
 export default Username;

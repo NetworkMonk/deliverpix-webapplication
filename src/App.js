@@ -1,9 +1,9 @@
 import React from "react";
-import { AppContextProvider } from "./context";
-import { ApplicationRouter, ApplicationSwitch } from "./router/Router";
+import { AppContextProvider } from "./app/context";
+import { ApplicationRouter, ApplicationSwitch } from "./app/router/Router";
 import Container from "./components/common/Container";
 import Nav from "./components/nav/Nav";
-import IconLibrary from "./icon-library/IconLibrary";
+import IconLibrary from "./app/icon-library/IconLibrary";
 import "./tailwind.generated.css";
 
 IconLibrary();

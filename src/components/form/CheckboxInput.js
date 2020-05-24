@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function CheckboxInput(props) {
   const { id, label, disabled, checked, onChange } = props;
@@ -10,11 +11,29 @@ function CheckboxInput(props) {
         <input
           id={id}
           type="checkbox"
-          className="mr-2 leading-tight"
+          className="mr-2 leading-tight hidden pointer-events-none"
           disabled={disabled}
           onChange={onChange ? onChange : ""}
           checked={checked}
         />
+        <span className="mr-3">
+          {checked && (
+            <FontAwesomeIcon
+              icon="check-square"
+              fixedWidth
+              className="text-blue-600"
+              size="lg"
+            />
+          )}
+          {!checked && (
+            <FontAwesomeIcon
+              icon={["far", "square"]}
+              fixedWidth
+              className="text-gray-600"
+              size="lg"
+            />
+          )}
+        </span>
         {label && <span className="text-sm">{label}</span>}
       </label>
     </div>

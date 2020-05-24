@@ -1,10 +1,10 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Dashboard from "../components/dashboard/Dashboard";
-import CreateCollection from "../components/create-collection/CreateCollection";
-import Collection from "../components/collection/Collection";
-import SignIn from "../components/signin/SignIn";
-import Survey2020 from "../components/survey2020/Survey2020";
+import Dashboard from "../../components/dashboard/Dashboard";
+import CreateCollection from "../../components/create-collection/CreateCollection";
+import Collection from "../../components/collection/Collection";
+import SignIn from "../../components/signin/SignIn";
+import Survey2020 from "../../pages/survey2020/Survey2020";
 
 export function ApplicationRouter(props) {
   const { children } = props ? props : {};

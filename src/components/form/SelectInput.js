@@ -23,7 +23,7 @@ function SelectInput(props) {
           id={id}
           type="text"
           placeholder={placeholder}
-          className="transition duration-200 ease-in-out appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          className="transition duration-200 ease-in-out appearance-none border rounded w-full py-2 px-3 bg-white text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
           disabled={disabled}
           value={value ? value : ""}
           onChange={onChange ? onChange : ""}
