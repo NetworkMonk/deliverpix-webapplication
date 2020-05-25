@@ -29,12 +29,15 @@ function Survey2020() {
       return;
     }
 
-    // Make sure recaptch is valid and submit form
+    // Make sure recaptcha is valid and submit form
     recaptchaRef.current.execute().then(function (token) {
       if (!token) {
         return;
       }
-      console.log(token);
+
+      const postValues = { ...formValues, recaptcha: token };
+      console.log(postValues);
+
       setFormValues({
         ...formValues,
         validationErrors: {},

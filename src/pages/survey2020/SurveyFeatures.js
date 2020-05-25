@@ -85,6 +85,24 @@ function SurveyFeatures(props) {
       </div>
       <div className="mb-4">
         <SelectInput
+          id="feature-client-payments"
+          label="Ability to manage client payments for services directly through the delivery service"
+          options={featureOptions}
+          value={
+            formValues.featureClientPayments
+              ? formValues.featureClientPayments
+              : ""
+          }
+          onChange={(e) =>
+            setFormValues({
+              ...formValues,
+              featureClientPayments: e.target.value,
+            })
+          }
+        ></SelectInput>
+      </div>
+      <div className="mb-4">
+        <SelectInput
           id="feature-trial-period"
           label="A trial period where you can try all features for a limited time"
           options={featureOptions}
