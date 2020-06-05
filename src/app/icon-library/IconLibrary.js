@@ -12,6 +12,13 @@ import {
 
 import { faSquare } from "@fortawesome/free-regular-svg-icons";
 
+import {
+  faFacebook,
+  faInstagram,
+  faTwitter,
+  faGithub,
+} from "@fortawesome/free-brands-svg-icons";
+
 function IconLibrary() {
   library.add(
     fab,
@@ -21,7 +28,11 @@ function IconLibrary() {
     faInfoCircle,
     faToggleOff,
     faToggleOn,
-    faSquare
+    faSquare,
+    faFacebook,
+    faInstagram,
+    faTwitter,
+    faGithub
   );
 }
 

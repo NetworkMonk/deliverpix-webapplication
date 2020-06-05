@@ -4,6 +4,7 @@ import Dashboard from "../../components/dashboard/Dashboard";
 import CreateCollection from "../../components/create-collection/CreateCollection";
 import Collection from "../../components/collection/Collection";
 import SignIn from "../../components/signin/SignIn";
+import Home from "../../pages/home/Home";
 import Survey2020 from "../../pages/survey2020/Survey2020";
 
 export function ApplicationRouter(props) {
@@ -22,8 +23,9 @@ export function ApplicationSwitch() {
       ></Route>
       <Route exact path="/beta/" component={Survey2020}></Route>
       <Route exact path="/trial/" component={Survey2020}></Route>
+      <Route exact path="/dashboard/" component={Dashboard}></Route>
       <Route path="/:author/:collection" component={Collection}></Route>
-      <Route path="/" component={Dashboard}></Route>
+      <Route path="/" component={Home}></Route>
     </Switch>
   );
 }

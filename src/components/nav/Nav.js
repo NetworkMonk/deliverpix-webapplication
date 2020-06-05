@@ -5,7 +5,7 @@ import Logo from "../common/Logo";
 
 function Nav() {
   return (
-    <nav className="flex items-center justify-between flex-wrap bg-purple-900 p-6">
+    <nav className="flex items-center justify-between flex-wrap bg-purple-900 text-white p-6">
       <div className="flex items-center flex-shrink-0 text-white mr-6">
         <Logo size="1.9" />
         <span className="font-semibold text-xl tracking-tight">
@@ -13,7 +13,7 @@ function Nav() {
         </span>
       </div>
       <div className="block lg:hidden">
-        <button className="flex items-center px-3 py-2 border rounded text-teal-200 border-gray-400 hover:text-white hover:border-white">
+        <button className="flex items-center px-3 py-2 border rounded text-purple-900 border-gray-400 hover:text-white hover:border-white">
           <svg
             className="fill-current h-3 w-3"
             viewBox="0 0 20 20"
@@ -28,21 +28,21 @@ function Nav() {
         <div className="text-md lg:flex-grow">
           <Link
             to={`/`}
-            className="block mt-4 lg:inline-block lg:mt-0 transition duration-200 text-purple-300 hover:text-white mr-4"
+            className="block mt-4 lg:inline-block lg:mt-0 transition duration-200 text-purple-200 hover:text-purple-500 mr-4"
             activeclassname="text-underline"
           >
             Home
           </Link>
           <Link
-            to={`/`}
-            className="block mt-4 lg:inline-block lg:mt-0 transition duration-200 text-purple-300 hover:text-white mr-4"
+            to={`/dashboard/`}
+            className="block mt-4 lg:inline-block lg:mt-0 transition duration-200 text-purple-200 hover:text-purple-500 mr-4"
             activeclassname="text-underline"
           >
             Dashboard
           </Link>
           <Link
             to={`/blog/`}
-            className="block mt-4 lg:inline-block lg:mt-0 transition duration-200 text-purple-300 hover:text-white mr-4"
+            className="block mt-4 lg:inline-block lg:mt-0 transition duration-200 text-purple-200 hover:text-purple-500 mr-4"
             activeclassname="text-underline"
           >
             Blog
@@ -51,9 +51,8 @@ function Nav() {
         <div>
           <Link
             to={`/signin/`}
-            className="transition duration-200 text-purple-300 hover:text-white"
+            className="transition duration-200 text-purple-200 hover:text-purple-500"
           >
-            <FontAwesomeIcon icon="coffee" fixedWidth className="mr-3" />
             Sign In
           </Link>
         </div>
