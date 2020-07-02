@@ -15,16 +15,16 @@ export function ApplicationRouter(props) {
 export function ApplicationSwitch() {
   return (
     <Switch>
-      <Route exact path="/signin/" component={SignIn}></Route>
+      {/* <Route exact path="/signin/" component={SignIn}></Route>
       <Route
         exact
         path="/create-collection/"
         component={CreateCollection}
-      ></Route>
-      <Route exact path="/beta/" component={Survey2020}></Route>
-      <Route exact path="/trial/" component={Survey2020}></Route>
-      <Route exact path="/dashboard/" component={Dashboard}></Route>
-      <Route path="/:author/:collection" component={Collection}></Route>
+      ></Route> */}
+      {/* <Route exact path="/beta/" component={Survey2020}></Route> */}
+      <Route exact path="/interest/" component={Survey2020}></Route>
+      {/* <Route exact path="/dashboard/" component={Dashboard}></Route>
+      <Route path="/:author/:collection" component={Collection}></Route> */}
       <Route path="/" component={Home}></Route>
     </Switch>
   );

@@ -6,9 +6,7 @@ import PasswordInput from "../form/PasswordInput";
 import Button from "../form/Button";
 
 function SignIn() {
-  const submit = () => {
-    console.log("Button is clicked");
-  };
+  const submit = () => {};
 
   return (
     <div>

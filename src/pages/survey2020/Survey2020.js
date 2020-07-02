@@ -10,14 +10,19 @@ import SurveyBetaInterest from "./SurveyBetaInterest";
 import SurveyContactDetails from "./SurveyContactDetails";
 import SurveyTerms from "./SurveyTerms";
 import Validate from "./Validate";
+import Request from "../../app/api/API";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Alert from "../../components/common/Alert";
 
 const recaptchaRef = React.createRef();
 
 function Survey2020() {
   const [formValues, setFormValues] = useState({});
+  const [formResult, setFormResult] = useState("");
 
   const submit = () => {
-    console.log(formValues);
+    setFormResult("submitting");
+
     var validationErrors = Validate(formValues);
     if (Object.keys(validationErrors).length > 0) {
       setFormValues({
@@ -25,7 +30,6 @@ function Survey2020() {
         validationErrors: validationErrors,
       });
 
-      console.log(validationErrors);
       return;
     }
 
@@ -36,7 +40,22 @@ function Survey2020() {
       }
 
       const postValues = { ...formValues, recaptcha: token };
-      console.log(postValues);
+
+      Request({
+        path: process.env.REACT_APP_BETA_SERVICE,
+        method: "post",
+        data: postValues,
+        success: function (result) {
+          if (result.status === "Success") {
+            setFormResult("success");
+            return;
+          }
+          setFormResult("error");
+        },
+        error: function () {
+          setFormResult("error");
+        },
+      });
 
       setFormValues({
         ...formValues,
@@ -47,9 +66,9 @@ function Survey2020() {
 
   return (
     <div>
-      <PageTitle>Deliver Pix Survey</PageTitle>
       <Container>
-        <form className="bg-gray-100 shadow-lg rounded px-4 md:px-8 pt-6 pb-8 mb-4">
+        <PageTitle>Deliver Pix Survey</PageTitle>
+        <form className="bg-gray-100 shadow-lg rounded mt-8 px-4 md:px-8 pt-6 pb-8 mb-4">
           <SurveyDescription />
           <SurveyCurrent
             formValues={formValues}
@@ -74,9 +93,37 @@ function Survey2020() {
               size="invisible"
               sitekey="6LetzvkUAAAAAOY162bGI5DmYhOBaGU9BN9HmSUo"
             />
-            <Button id="submit" onClick={submit}>
-              Complete Survey
-            </Button>
+            {(formResult === "" || formResult === "error") && (
+              <Button id="submit" onClick={submit}>
+                Complete Survey
+              </Button>
+            )}
+            {formResult === "submitting" && (
+              <Button id="submit-processing" disabled={true}>
+                <FontAwesomeIcon
+                  icon="circle-notch"
+                  fixedWidth
+                  className="mr-3"
+                  spin
+                />
+                Submitting
+              </Button>
+            )}
+            {formResult === "success" && (
+              <div className="my-3">
+                <Alert color="green">
+                  Your data has been submitted, thank you for showing an
+                  interest in deliverpix.com!
+                </Alert>
+              </div>
+            )}
+            {formResult === "error" && (
+              <div className="my-3">
+                <Alert color="red">
+                  There was an error submitting your data, please try again.
+                </Alert>
+              </div>
+            )}
           </div>
         </form>
       </Container>
