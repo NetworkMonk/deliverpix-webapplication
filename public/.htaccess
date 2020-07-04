@@ -1,11 +1,10 @@
-<IfModule mod_rewrite.c>
+Header set Strict-Transport-Security "max-age=31536000" env=HTTPS
 
-  RewriteEngine On
-  RewriteBase /
-  RewriteRule ^index\.html$ - [L]
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteCond %{REQUEST_FILENAME} !-l
-  RewriteRule . /index.html [L]
+RewriteEngine on 
 
-</IfModule>
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.*)$ $1.html [NC,L]
+
+RewriteCond %{THE_REQUEST} "^[^ ]* .*?\.html[? ].*$"
+RewriteRule .* - [L,R=404]
