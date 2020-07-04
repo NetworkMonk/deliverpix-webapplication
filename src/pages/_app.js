@@ -1,6 +1,6 @@
 import React from "react";
 import App from "next/app";
-import "../tailwind.generated.css";
+import "../tailwind.css";
 import "../components/animations/animations.css";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";

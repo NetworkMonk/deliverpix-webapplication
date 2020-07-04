@@ -22,8 +22,7 @@
     "react-google-recaptcha": "^2.0.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
-    "source-map-explorer": "^2.4.2",
-    "tailwindcss": "^1.4.6"
+    "source-map-explorer": "^2.4.2"
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
@@ -31,14 +30,9 @@
     ]
   },
   "scripts": {
-    "build:tailwind": "tailwindcss build src/tailwind.css -o src/tailwind.generated.css",
-    "prestart": "npm run build:tailwind",
-    "prebuild": "npm run build:tailwind",
     "analyze": "source-map-explorer 'build/static/js/*.js'",
     "start": "next start",
     "build": "next build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
     "dev": "next",
     "export": "next export"
   },
@@ -63,15 +57,10 @@
     }
   },
   "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^2.3.0",
+    "autoprefixer": "^9.8.4",
     "eslint": "^6.8.0",
-    "eslint-plugin-react": "^7.19.0"
-  },
-  "bit": {
-    "env": {
-      "compiler": "bit.envs/compilers/react@1.0.17",
-      "tester": "bit.envs/testers/karma-mocha@1.7.1"
-    },
-    "componentsDefaultDirectory": "components/{name}",
-    "packageManager": "npm"
+    "eslint-plugin-react": "^7.19.0",
+    "tailwindcss": "^1.4.6"
   }
 }

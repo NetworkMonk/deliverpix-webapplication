@@ -75,7 +75,7 @@ export default function Home() {
                     </FadeInUp>
                   </li>
                   <li className="mt-10 md:mt-0">
-                    <FadeInUp visible={featureVisible} delay={3}>
+                    <FadeInUp visible={featureVisible} delay={2}>
                       <div className="flex">
                         <div className="flex-shrink-0">
                           <div className="flex items-center justify-center h-12 w-12 rounded-md bg-purple-500 text-white">
@@ -95,7 +95,7 @@ export default function Home() {
                     </FadeInUp>
                   </li>
                   <li className="mt-10 md:mt-0">
-                    <FadeInUp visible={featureVisible} delay={5}>
+                    <FadeInUp visible={featureVisible} delay={3}>
                       <div className="flex">
                         <div className="flex-shrink-0">
                           <div className="flex items-center justify-center h-12 w-12 rounded-md bg-purple-500 text-white">
@@ -115,7 +115,7 @@ export default function Home() {
                     </FadeInUp>
                   </li>
                   <li className="mt-10 md:mt-0">
-                    <FadeInUp visible={featureVisible} delay={7}>
+                    <FadeInUp visible={featureVisible} delay={4}>
                       <div className="flex">
                         <div className="flex-shrink-0">
                           <div className="flex items-center justify-center h-12 w-12 rounded-md bg-purple-500 text-white">
