@@ -3,11 +3,7 @@ import { fab } from "@fortawesome/free-brands-svg-icons";
 
 import {
   faCheckSquare,
-  faCoffee,
   faInfo,
-  faInfoCircle,
-  faToggleOff,
-  faToggleOn,
   faCircle,
   faCircleNotch,
   faProjectDiagram,
@@ -27,13 +23,8 @@ import {
 
 function IconLibrary() {
   library.add(
-    fab,
     faCheckSquare,
-    faCoffee,
     faInfo,
-    faInfoCircle,
-    faToggleOff,
-    faToggleOn,
     faCircle,
     faCircleNotch,
     faProjectDiagram,
