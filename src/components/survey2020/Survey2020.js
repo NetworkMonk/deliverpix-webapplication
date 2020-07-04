@@ -29,20 +29,21 @@ function Survey2020() {
         ...formValues,
         validationErrors: validationErrors,
       });
-
+      setFormResult("error");
       return;
     }
 
     // Make sure recaptcha is valid and submit form
     recaptchaRef.current.execute().then(function (token) {
       if (!token) {
+        setFormResult("error");
         return;
       }
 
       const postValues = { ...formValues, recaptcha: token };
 
       Request({
-        path: process.env.BETA_SERVICE,
+        path: process.env.NEXT_PUBLIC_BETA_SERVICE,
         method: "post",
         data: postValues,
         success: function (result) {
