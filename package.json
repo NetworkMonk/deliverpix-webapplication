@@ -8,10 +8,12 @@
     "@fortawesome/free-regular-svg-icons": "^5.13.0",
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
     "@fortawesome/react-fontawesome": "^0.1.9",
+    "@next/bundle-analyzer": "^9.4.4",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "babel-plugin-module-resolver": "^4.0.0",
+    "cross-env": "^7.0.2",
     "email-validator": "^2.0.4",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.2",
@@ -30,7 +32,9 @@
     ]
   },
   "scripts": {
-    "analyze": "source-map-explorer 'build/static/js/*.js'",
+    "analyze": "cross-env ANALYZE=true next build",
+    "analyze:server": "cross-env BUNDLE_ANALYZE=server next build",
+    "analyze:browser": "cross-env BUNDLE_ANALYZE=browser next build",
     "start": "next start",
     "build": "next build",
     "dev": "next",
