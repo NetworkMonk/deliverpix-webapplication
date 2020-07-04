@@ -14,14 +14,16 @@ function CallToAction01(props) {
     primaryColor,
     textColor,
     backgroundColor,
+    buttonColor,
+    slantedColor,
   } = props;
 
   return (
-    <div className={"relative bg-" + backgroundColor + " overflow-hidden"}>
+    <div className={"relative " + backgroundColor + " overflow-hidden"}>
       <div className="max-w-screen-xl mx-auto">
         <div
           className={
-            "relative z-10 pb-8 bg-" +
+            "relative z-10 pb-8 " +
             backgroundColor +
             " sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32"
           }
@@ -29,8 +31,8 @@ function CallToAction01(props) {
           {slanted && (
             <svg
               className={
-                "hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-" +
-                backgroundColor +
+                "hidden lg:block absolute right-0 inset-y-0 h-full w-48 " +
+                slantedColor +
                 " transform translate-x-1/2"
               }
               fill="currentColor"
@@ -46,7 +48,7 @@ function CallToAction01(props) {
               {title && (
                 <h2
                   className={
-                    "text-4xl tracking-tight leading-10 font-extrabold text-" +
+                    "text-4xl tracking-tight leading-10 font-extrabold " +
                     primaryColor +
                     " sm:text-5xl sm:leading-none md:text-6xl"
                   }
@@ -60,7 +62,7 @@ function CallToAction01(props) {
                   return (
                     <p
                       className={
-                        "mt-3 text-base text-" +
+                        "mt-3 text-base " +
                         textColor +
                         " sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-8 md:text-xl lg:mx-0"
                       }
@@ -76,8 +78,8 @@ function CallToAction01(props) {
                   <a href={buttonPath}>
                     <button
                       className={
-                        "rounded p-4 bg-" +
-                        primaryColor +
+                        "rounded p-4 " +
+                        buttonColor +
                         " opacity-75 text-white hover:opacity-100 transition duration-200"
                       }
                     >
@@ -124,6 +126,8 @@ CallToAction01.propTypes = {
   primaryColor: PropTypes.string,
   textColor: PropTypes.string,
   backgroundColor: PropTypes.string,
+  buttonColor: PropTypes.string,
+  slantedColor: PropTypes.string,
 };
 
 CallToAction01.defaultProps = {
@@ -134,9 +138,11 @@ CallToAction01.defaultProps = {
   image: "",
   imageCredit: {},
   slanted: true,
-  primaryColor: "purple-700",
-  textColor: "gray-700",
-  backgroundColor: "gray-200",
+  primaryColor: "text-purple-700",
+  textColor: "text-gray-700",
+  backgroundColor: "bg-gray-200",
+  buttonColor: "bg-purple-700",
+  slantedColor: "text-gray-200",
 };
 
 export default CallToAction01;

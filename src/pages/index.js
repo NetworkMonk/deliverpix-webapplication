@@ -32,9 +32,11 @@ export default function Home() {
             link: "https://unsplash.com/@trevormbrown7",
           }}
           slanted={true}
-          primaryColor="purple-700"
-          textColor="gray-700"
-          backgroundColor="gray-200"
+          primaryColor="text-purple-700"
+          textColor="text-gray-700"
+          backgroundColor="bg-gray-200"
+          buttonColor="bg-purple-700"
+          slantedColor="text-gray-200"
         />
         <div className="py-12 bg-white">
           <div className="max-w-screen-xl md:py-12 mx-auto px-4 sm:px-6 lg:px-8">
