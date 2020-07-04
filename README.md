@@ -1,6 +1,6 @@
 # deliverpix
 
-![Version](https://img.shields.io/badge/version-1.0.0-blue)
+![Version](https://img.shields.io/github/package-json/v/NetworkMonk/deliverpix-webapplication)
 
 deliverpix is an online photo delivery platform for professional photographers.
 
