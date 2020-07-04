@@ -7,12 +7,12 @@ function Nav() {
     <nav className="flex items-center justify-between flex-wrap bg-purple-900 text-white p-6">
       <div className="flex items-center flex-shrink-0 text-white mr-6">
         <Link href="/">
-          <span>
+          <span className="cursor-pointer">
             <Logo size="1.9" />
           </span>
         </Link>
         <Link href="/">
-          <span className="font-semibold text-xl tracking-tight">
+          <span className="font-semibold text-xl tracking-tight cursor-pointer">
             deliverpix
           </span>
         </Link>

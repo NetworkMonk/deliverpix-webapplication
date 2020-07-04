@@ -1,10 +1,19 @@
 import React from "react";
-import IconLibrary from "../app/icon-library/IconLibrary";
+import App from "next/app";
 import "../tailwind.generated.css";
+import "../components/animations/animations.css";
+import { config } from "@fortawesome/fontawesome-svg-core";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+import IconLibrary from "../app/icon-library/IconLibrary";
+config.autoAddCss = false;
 
 IconLibrary();
 
-// This default export is required in a new `pages/_app.js` file.
-export default function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />;
+class MyApp extends App {
+  render() {
+    const { Component, pageProps } = this.props;
+    return <Component {...pageProps} />;
+  }
 }
+
+export default MyApp;
