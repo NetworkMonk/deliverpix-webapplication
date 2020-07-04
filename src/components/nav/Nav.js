@@ -7,14 +7,14 @@ function Nav() {
     <nav className="flex items-center justify-between flex-wrap bg-purple-900 text-white p-6">
       <div className="flex items-center flex-shrink-0 text-white mr-6">
         <Link href="/">
-          <span className="cursor-pointer">
+          <a className="cursor-pointer">
             <Logo size="1.9" />
-          </span>
+          </a>
         </Link>
         <Link href="/">
-          <span className="font-semibold text-xl tracking-tight cursor-pointer">
+          <a className="font-semibold text-xl tracking-tight cursor-pointer">
             deliverpix
-          </span>
+          </a>
         </Link>
       </div>
       <div className="block lg:hidden"></div>
