@@ -78,9 +78,9 @@ function CallToAction01(props) {
                   <a href={buttonPath}>
                     <button
                       className={
-                        "rounded p-4 " +
+                        "rounded-lg p-4 " +
                         buttonColor +
-                        " opacity-75 text-white hover:opacity-100 transition duration-200"
+                        " text-white transition duration-200 border-solid border-4 border-gray-200 hover:border-purple-400 focus:outline-none"
                       }
                     >
                       {buttonLabel || "CLICK HERE"}

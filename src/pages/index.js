@@ -25,7 +25,7 @@ export default function Home() {
           ]}
           buttonLabel="Register your interest"
           buttonPath="/interest"
-          image="home-background-01.jpg"
+          image="trevor-brown-YucYLQ6Dm8A-unsplash.jpg"
           imageCredit={{
             provider: "unsplash",
             author: "Trevor Brown",
@@ -35,7 +35,7 @@ export default function Home() {
           primaryColor="text-purple-700"
           textColor="text-gray-700"
           backgroundColor="bg-gray-200"
-          buttonColor="bg-purple-700"
+          buttonColor="bg-purple-900"
           slantedColor="text-gray-200"
         />
         <div className="py-12 bg-white">
@@ -44,7 +44,7 @@ export default function Home() {
               <h3 className="mt- text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10">
                 A single solution for your photography business
               </h3>
-              <p className="mt-4 max-w-2xl text-xl leading-7 text-gray-500 lg:mx-auto">
+              <p className="mt-4 max-w-2xl text-xl leading-7 text-gray-700 lg:mx-auto">
                 What features are we looking to include in the final product?
               </p>
             </div>
@@ -67,7 +67,7 @@ export default function Home() {
                           <h5 className="text-lg leading-6 font-medium text-gray-900">
                             Project Management
                           </h5>
-                          <p className="mt-2 text-base leading-6 text-gray-500">
+                          <p className="mt-2 text-base leading-6 text-gray-700">
                             Manage your clients, book jobs in your calendar.
                             Send quotes, invoices and take payments, all built
                             in.
@@ -88,7 +88,7 @@ export default function Home() {
                           <h5 className="text-lg leading-6 font-medium text-gray-900">
                             Client Access
                           </h5>
-                          <p className="mt-2 text-base leading-6 text-gray-500">
+                          <p className="mt-2 text-base leading-6 text-gray-700">
                             Send invites to your projects directly to clients.
                             They can preview contents until unlocked.
                           </p>
@@ -108,7 +108,7 @@ export default function Home() {
                           <h5 className="text-lg leading-6 font-medium text-gray-900">
                             Social Intergration
                           </h5>
-                          <p className="mt-2 text-base leading-6 text-gray-500">
+                          <p className="mt-2 text-base leading-6 text-gray-700">
                             Share images directly to social media services, with
                             image optimisation performed automatically.
                           </p>
@@ -128,7 +128,7 @@ export default function Home() {
                           <h5 className="text-lg leading-6 font-medium text-gray-900">
                             Print Services
                           </h5>
-                          <p className="mt-2 text-base leading-6 text-gray-500">
+                          <p className="mt-2 text-base leading-6 text-gray-700">
                             Customers can order prints directly from your
                             collections. You decide your own margin.
                           </p>
