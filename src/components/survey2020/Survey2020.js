@@ -42,7 +42,7 @@ function Survey2020() {
       const postValues = { ...formValues, recaptcha: token };
 
       Request({
-        path: process.env.REACT_APP_BETA_SERVICE,
+        path: process.env.BETA_SERVICE,
         method: "post",
         data: postValues,
         success: function (result) {
