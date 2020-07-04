@@ -34,7 +34,8 @@
     "start": "next start",
     "build": "next build",
     "dev": "next",
-    "export": "next export"
+    "export": "next export",
+    "deploy": "node deploy"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -61,6 +62,7 @@
     "autoprefixer": "^9.8.4",
     "eslint": "^6.8.0",
     "eslint-plugin-react": "^7.19.0",
+    "ftp-deploy": "^2.3.7",
     "tailwindcss": "^1.4.6"
   }
 }
