@@ -10,7 +10,7 @@ import SurveyBetaInterest from "./SurveyBetaInterest";
 import SurveyContactDetails from "./SurveyContactDetails";
 import SurveyTerms from "./SurveyTerms";
 import Validate from "./Validate";
-import Request from "../../app/api/API";
+import { Request } from "../../app/api/API";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Alert from "../../components/common/Alert";
 
