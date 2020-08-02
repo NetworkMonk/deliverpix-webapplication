@@ -17,15 +17,25 @@ function Session(props) {
     Request({
       path: process.env.NEXT_PUBLIC_AUTH_SERVICE + "auth/refresh",
       method: "post",
-      success: function (result) {
+      success: function (code, result) {
+        if (code !== 200) {
+          dispatch({
+            type: "USERAUTH",
+            payload: {},
+          });
+          return;
+        }
+
         // Refresh token before it expires
         if (refreshInterval !== false) {
           clearInterval(refreshInterval);
           refreshInterval = false;
         }
-        refreshInterval = setInterval(() => {
-          refreshToken();
-        }, (result.expires - currentTime) * 1000 - refreshEarly);
+        if (result.expires) {
+          refreshInterval = setInterval(() => {
+            refreshToken();
+          }, (result.expires - currentTime) * 1000 - refreshEarly);
+        }
 
         dispatch({
           type: "USERAUTH",

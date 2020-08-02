@@ -21,7 +21,8 @@ export default function Signup() {
   const [formResult, setFormResult] = useState("");
 
   const recaptchaRef = React.createRef();
-  const formEnabled = formResult === "" ? true : false;
+  const formEnabled =
+    formResult === "" || formResult === "error" ? true : false;
 
   const { userState } = getUserState();
 
@@ -47,18 +48,23 @@ export default function Signup() {
         path: process.env.NEXT_PUBLIC_AUTH_SERVICE + "auth",
         method: "post",
         data: postValues,
-        success: function (result) {
-          dispatch({
-            type: "USERAUTH",
-            payload: {
-              accessToken: result.accessToken,
-              tokenType: result.tokenType,
-              username: result.username,
-              firstName: result.firstName,
-              lastName: result.lastName,
-              expires: result.expires,
-            },
-          });
+        success: function (code, result) {
+          if (code === 200) {
+            dispatch({
+              type: "USERAUTH",
+              payload: {
+                accessToken: result.accessToken,
+                tokenType: result.tokenType,
+                username: result.username,
+                firstName: result.firstName,
+                lastName: result.lastName,
+                expires: result.expires,
+              },
+            });
+            setFormResult("success");
+            return;
+          }
+          setFormResult("error");
         },
         error: function () {
           setFormResult("error");

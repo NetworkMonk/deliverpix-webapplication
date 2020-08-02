@@ -39,8 +39,8 @@ export default function Signup() {
         path: process.env.NEXT_PUBLIC_AUTH_SERVICE + "new",
         method: "post",
         data: postValues,
-        success: function (result) {
-          if (result.status === "Success") {
+        success: function (code) {
+          if (code === 200) {
             setFormResult("success");
             return;
           }
