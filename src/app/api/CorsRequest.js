@@ -35,34 +35,15 @@ function CorsRequest(requestData) {
     body: data,
   })
     .then(function (response) {
-      if (response.status === 200) {
+      // We should always get some kind of json response, return this and the code to the success callback
+      response.json().then(function (data) {
         if (typeof success === "function") {
-          response
-            .json()
-            .then(function (data) {
-              success(data);
-              if (typeof always === "function") {
-                always();
-              }
-            })
-            .catch(function () {
-              if (typeof error === "function") {
-                error();
-              }
-            });
-        } else {
-          if (typeof always === "function") {
-            always();
-          }
-        }
-      } else {
-        if (typeof error === "function") {
-          error();
+          success(response.status, data);
         }
         if (typeof always === "function") {
-          always();
+          always(response.status, data);
         }
-      }
+      });
     })
     .catch(function () {
       if (typeof error === "function") {
