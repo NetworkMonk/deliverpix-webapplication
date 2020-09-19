@@ -84,7 +84,6 @@ export default function Signup() {
       <StandardHead />
       <Nav />
       <Container>
-        <p>{userState.accessToken ? userState.accessToken : ""}</p>
         <PageTitle>Sign In</PageTitle>
         <SubTitle>
           Enter your username and password to login to deliverpix.
