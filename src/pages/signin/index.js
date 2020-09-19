@@ -15,6 +15,8 @@ import Alert from "../../components/common/Alert";
 import Button from "../../components/form/Button";
 import { CorsRequest as Request } from "../../app/api/API";
 import getUserState from "../../app/store/GetUser";
+import Link from "next/link";
+import Router from "next/router";
 
 export default function Signup() {
   const [formValues, setFormValues] = useState({});
@@ -133,9 +135,18 @@ export default function Signup() {
                 sitekey="6LetzvkUAAAAAOY162bGI5DmYhOBaGU9BN9HmSUo"
               />
               {(formResult === "" || formResult === "error") && (
-                <Button id="submit" onClick={submit}>
-                  Sign In
-                </Button>
+                <div>
+                  <Button id="submit" onClick={submit}>
+                    Sign In
+                  </Button>
+                  <hr className="mx-5 my-8" />
+                  <p className="my-3">
+                    Not registered? Create an account here.
+                  </p>
+                  <Link href="/signup">
+                    <Button>Create Account</Button>
+                  </Link>
+                </div>
               )}
               {formResult === "submitting" && (
                 <Button id="submit-processing" disabled={true}>
