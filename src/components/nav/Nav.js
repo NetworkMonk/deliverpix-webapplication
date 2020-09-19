@@ -25,9 +25,11 @@ function Nav() {
         <div className="text-md lg:flex-grow"></div>
         <div>
           {userState.accessToken && (
-            <div className="font-semibold text-base tracking-tight cursor-pointer">
-              {userState.firstName + " " + userState.lastName}
-            </div>
+            <Link href="/dashboard">
+              <a className="font-semibold text-base tracking-tight cursor-pointer">
+                {userState.firstName + " " + userState.lastName}
+              </a>
+            </Link>
           )}
           {!userState.accessToken && (
             <Link href="/signin">
