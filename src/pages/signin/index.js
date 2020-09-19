@@ -62,6 +62,7 @@ export default function Signup() {
               },
             });
             setFormResult("success");
+            Router.push("/dashboard");
             return;
           }
           setFormResult("error");
