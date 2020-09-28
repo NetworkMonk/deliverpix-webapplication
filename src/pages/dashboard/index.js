@@ -8,6 +8,8 @@ import Button from "../../components/form/Button";
 import { useDispatch } from "react-redux";
 import getUserState from "../../app/store/GetUser";
 import { CorsRequest as Request } from "../../app/api/API";
+import SubTitle from "../../components/common/SubTitle";
+import CollectionList from "../../components/dashboard/collections/CollectionList";
 
 export default function Interest() {
   const { userState } = getUserState();
@@ -37,6 +39,13 @@ export default function Interest() {
       <Nav />
       <ContainerWide>
         <PageTitle>My Dashboard</PageTitle>
+        <SubTitle>My Collections</SubTitle>
+        <CollectionList></CollectionList>
+        <div className="p-4">
+          <Button path="/dashboard/create-collection/">
+            Create New Collection
+          </Button>
+        </div>
         <Button onClick={signOut}>Sign Out</Button>
       </ContainerWide>
       <Footer />
